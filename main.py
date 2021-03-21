@@ -121,4 +121,4 @@ print(lecturer_grades)
 # def course_stat(student):
 #   if isinstance(student, Student) and course in student.courses_in_progress:
 bad_lecturer.__str__()
-print("jljjklj")
+
