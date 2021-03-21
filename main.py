@@ -24,7 +24,8 @@ class Student:
         print("print(some_student)")
         print(f"Имя: {self.name}")
         print(f"Фамилиия: {self.surname}")
-
+        print(f"Средняя оценка за домашние задания: ")
+        print(f"Курсы в процессе изучения: ")
 
 class Mentor:
     def __init__(self, name, surname):
@@ -61,6 +62,7 @@ class Lecturer(Mentor):
         print("print(some_lecturer)")
         print(f"Имя: {self.name}")
         print(f"Фамилия: {self.surname}")
+        print(f"Средняя оценка за лекции: ")
 
 best_student = Student('Ruoy', 'Eman', 'your_gender')
 best_student.courses_in_progress += ['Python']
@@ -114,11 +116,12 @@ student_grades.append(worst_student.grades)
 lecturer_grades.append(cool_lecturer.grades)
 lecturer_grades.append(bad_lecturer.grades)
 
-print(student_grades)
-print(lecturer_grades)
+# print(student_grades)
+# print(lecturer_grades)
 # for key, value in lecturer_grades:
 #     print(key)
 # def course_stat(student):
 #   if isinstance(student, Student) and course in student.courses_in_progress:
 bad_lecturer.__str__()
+middle_student.__str__()
 
