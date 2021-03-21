@@ -20,19 +20,27 @@ class Student:
                 lecturer.grades[course] = [grade]
         else:
             return 'Ошибка'
+
     def __str__(self):
         print("print(some_student)")
         print(f"Имя: {self.name}")
         print(f"Фамилиия: {self.surname}")
-        print(f"Средняя оценка за домашние задания: ")
+        for key, value in self.grades.items():
+            x = (sum(value) / len(value))
+        print(f"Средняя оценка за домашние задания: {x}")
         print(f"Курсы в процессе изучения: {', '.join(self.courses_in_progress)}")
         print(f"Завершенные курсы: {', '.join(self.finished_courses)}")
+
+
+
+
+
+
 class Mentor:
     def __init__(self, name, surname):
         self.name = name
         self.surname = surname
         self.courses_attached = []
-
 
 
 class Reviewer(Mentor):
@@ -46,10 +54,12 @@ class Reviewer(Mentor):
                 student.grades[course] = [grade]
         else:
             return 'Ошибка'
+
     def __str__(self):
         print("print(some_reviewer)")
         print(f"Имя: {self.name}")
         print(f"Фамилия: {self.surname}")
+
 
 class Lecturer(Mentor):
     def __init__(self, name, surname):
@@ -58,11 +68,15 @@ class Lecturer(Mentor):
         self.surname = surname
         self.courses_attached = []
         self.grades = {}
+
     def __str__(self):
         print("print(some_lecturer)")
         print(f"Имя: {self.name}")
         print(f"Фамилия: {self.surname}")
-        print(f"Средняя оценка за лекции: ")
+        for key, value in self.grades.items():
+            y = round((sum(value) / len(value)), 1)
+        print(f"Средняя оценка за лекции: {y}")
+
 
 best_student = Student('Ruoy', 'Eman', 'your_gender')
 best_student.courses_in_progress += ['Python']
@@ -105,11 +119,17 @@ worst_student.rate_lector(bad_lecturer, "Git", 2)
 worst_student.rate_lector(bad_lecturer, "Git", 5)
 worst_student.rate_lector(bad_lecturer, "Git", 6)
 
+
 # print(cool_lecturer.grades)
 # print(middle_student.grades)
 
-for key, value in middle_student.grades.items():
-    print(sum(value) / len(value))
+
+# for key, value in middle_student.grades.items():
+#     x = (sum(value) / len(value))
+#     print(x)
+
+
+
 
 lecturer_grades = []
 student_grades = []
@@ -126,5 +146,5 @@ lecturer_grades.append(bad_lecturer.grades)
 # def course_stat(student):
 #   if isinstance(student, Student) and course in student.courses_in_progress:
 bad_lecturer.__str__()
+cool_lecturer.__str__()
 middle_student.__str__()
-
