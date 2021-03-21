@@ -32,10 +32,6 @@ class Student:
         print(f"Завершенные курсы: {', '.join(self.finished_courses)}")
 
 
-
-
-
-
 class Mentor:
     def __init__(self, name, surname):
         self.name = name
@@ -74,7 +70,7 @@ class Lecturer(Mentor):
         print(f"Имя: {self.name}")
         print(f"Фамилия: {self.surname}")
         for key, value in self.grades.items():
-            y = round((sum(value) / len(value)), 1)
+            y = round((sum(value) / len(value)))
         print(f"Средняя оценка за лекции: {y}")
 
 
@@ -119,17 +115,11 @@ worst_student.rate_lector(bad_lecturer, "Git", 2)
 worst_student.rate_lector(bad_lecturer, "Git", 5)
 worst_student.rate_lector(bad_lecturer, "Git", 6)
 
-
-# print(cool_lecturer.grades)
-# print(middle_student.grades)
-
-
-# for key, value in middle_student.grades.items():
-#     x = (sum(value) / len(value))
-#     print(x)
-
-
-
+cool_lecturer.__str__()
+bad_lecturer.__str__()
+best_student.__str__()
+middle_student.__str__()
+worst_student.__str__()
 
 lecturer_grades = []
 student_grades = []
@@ -139,12 +129,4 @@ student_grades.append(worst_student.grades)
 lecturer_grades.append(cool_lecturer.grades)
 lecturer_grades.append(bad_lecturer.grades)
 
-# print(student_grades)
-# print(lecturer_grades)
-# for key, value in lecturer_grades:
-#     print(key)
-# def course_stat(student):
-#   if isinstance(student, Student) and course in student.courses_in_progress:
-bad_lecturer.__str__()
-cool_lecturer.__str__()
-middle_student.__str__()
+
