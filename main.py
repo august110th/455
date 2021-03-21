@@ -25,8 +25,8 @@ class Student:
         print(f"Имя: {self.name}")
         print(f"Фамилиия: {self.surname}")
         print(f"Средняя оценка за домашние задания: ")
-        print(f"Курсы в процессе изучения: ")
-
+        print(f"Курсы в процессе изучения: {', '.join(self.courses_in_progress)}")
+        print(f"Завершенные курсы: {', '.join(self.finished_courses)}")
 class Mentor:
     def __init__(self, name, surname):
         self.name = name
@@ -66,12 +66,15 @@ class Lecturer(Mentor):
 
 best_student = Student('Ruoy', 'Eman', 'your_gender')
 best_student.courses_in_progress += ['Python']
+best_student.finished_courses += ['Введение в программирование']
 
 worst_student = Student("Petr", "Ivanov", "male")
 worst_student.courses_in_progress += ["Git"]
+worst_student.finished_courses += ['Введение в программирование']
 
 middle_student = Student("Jack", "Daniels", "male")
 middle_student.courses_in_progress += ["Python", "Git"]
+middle_student.finished_courses += ['Введение в программирование']
 
 cool_reviewer = Reviewer('Some', 'Buddy')
 cool_reviewer.courses_attached += ['Python']
