@@ -40,6 +40,11 @@ class Student:
         print(f"Курсы в процессе изучения: {', '.join(self.courses_in_progress)}")
         print(f"Завершенные курсы: {', '.join(self.finished_courses)}")
 
+    # def stat(self, course, grade, student):
+    #     if python in self.courses_in_progress and self.name in student.names.items():
+    #
+
+
 
 class Mentor:
     def __init__(self, name, surname):
@@ -142,13 +147,14 @@ best_student.__str__()
 middle_student.__str__()
 worst_student.__str__()
 
-# lecturer_grades = []
-# student_grades = []
-# student_grades.append(best_student.grades)
-# student_grades.append(middle_student.grades)
-# student_grades.append(worst_student.grades)
-# lecturer_grades.append(cool_lecturer.grades)
-# lecturer_grades.append(bad_lecturer.grades)
+lecturer_grades = []
+student_grades = []
+student_grades.append(best_student.grades)
+student_grades.append(middle_student.grades)
+student_grades.append(worst_student.grades)
+lecturer_grades.append(cool_lecturer.grades)
+lecturer_grades.append(bad_lecturer.grades)
+print()
 print(middle_student.gpa)
 print(worst_student.gpa)
 print(middle_student < worst_student)
