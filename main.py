@@ -1,4 +1,5 @@
 class Student:
+    names = []
     def __init__(self, name, surname, gender):
         self.name = name
         self.surname = surname
@@ -7,6 +8,7 @@ class Student:
         self.courses_in_progress = []
         self.grades = {}
         self.gpa = 0
+        Student.names.append(name)
 
     def add_courses(self, course_name):
         self.finished_courses.append(course_name)
@@ -47,6 +49,12 @@ class Mentor:
 
 
 class Reviewer(Mentor):
+    names = []
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+        self.courses_attached = []
+        Reviewer.names.append(name)
     def rate_hw(self, student, course, grade):
         if isinstance(
                 student, Student
@@ -144,4 +152,5 @@ worst_student.__str__()
 print(middle_student.gpa)
 print(worst_student.gpa)
 print(middle_student < worst_student)
-
+print(Student.names)
+print(Reviewer.names)
