@@ -25,7 +25,6 @@ class Student:
     def __lt__(self, other):
         if not isinstance(other, Student):
             print("Это не студент")
-
         return self.gpa < other.gpa
 
     def __str__(self):
@@ -83,6 +82,10 @@ class Lecturer(Mentor):
             self.gpa = y
         print(f"Средняя оценка за лекции: {y}")
 
+    def __lt__(self, other):
+        if not isinstance(other, Lecturer):
+            print("Это не студент")
+        return self.gpa < other.gpa
 
 best_student = Student('Ruoy', 'Eman', 'your_gender')
 best_student.courses_in_progress += ['Python']
