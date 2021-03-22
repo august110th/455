@@ -6,6 +6,7 @@ class Student:
         self.finished_courses = []
         self.courses_in_progress = []
         self.grades = {}
+        self.gpa = 0
 
     def add_courses(self, course_name):
         self.finished_courses.append(course_name)
@@ -21,12 +22,19 @@ class Student:
         else:
             return 'Ошибка'
 
+    def __lt__(self, other):
+        if not isinstance(other, Student):
+            print("Это не студент")
+
+        return self.gpa < other.gpa
+
     def __str__(self):
         print("print(some_student)")
         print(f"Имя: {self.name}")
         print(f"Фамилиия: {self.surname}")
         for key, value in self.grades.items():
-            x = (sum(value) / len(value))
+            x = round(sum(value) / len(value), 1)
+            self.gpa = x
         print(f"Средняя оценка за домашние задания: {x}")
         print(f"Курсы в процессе изучения: {', '.join(self.courses_in_progress)}")
         print(f"Завершенные курсы: {', '.join(self.finished_courses)}")
@@ -64,13 +72,15 @@ class Lecturer(Mentor):
         self.surname = surname
         self.courses_attached = []
         self.grades = {}
+        self.gpa = 0
 
     def __str__(self):
         print("print(some_lecturer)")
         print(f"Имя: {self.name}")
         print(f"Фамилия: {self.surname}")
         for key, value in self.grades.items():
-            y = round((sum(value) / len(value)))
+            y = round(sum(value) / len(value), 1)
+            self.gpa = y
         print(f"Средняя оценка за лекции: {y}")
 
 
@@ -121,12 +131,14 @@ best_student.__str__()
 middle_student.__str__()
 worst_student.__str__()
 
-lecturer_grades = []
-student_grades = []
-student_grades.append(best_student.grades)
-student_grades.append(middle_student.grades)
-student_grades.append(worst_student.grades)
-lecturer_grades.append(cool_lecturer.grades)
-lecturer_grades.append(bad_lecturer.grades)
-
+# lecturer_grades = []
+# student_grades = []
+# student_grades.append(best_student.grades)
+# student_grades.append(middle_student.grades)
+# student_grades.append(worst_student.grades)
+# lecturer_grades.append(cool_lecturer.grades)
+# lecturer_grades.append(bad_lecturer.grades)
+print(middle_student.gpa)
+print(worst_student.gpa)
+print(middle_student < worst_student)
 
