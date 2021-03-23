@@ -160,14 +160,14 @@ worst_student.__str__()
 # print(worst_student.gpa)
 # print(middle_student < worst_student)
 # print(Student.names)
-# print(Student.grades)
-# print(Lecturer.grades)
-for i in Student.grades:
-    if 'Python' in i:
-        for key, value in i:
-
+print(Student.grades)
+print(Lecturer.grades)
+# for i in Student.grades:
+#     if 'Python' in i:
+#         print(i)
+print(middle_student.grades)
 # print(Reviewer.names)
-# print(lecturer_grades)
+# print(Lecturer_grades)
 # print(student_grades)
 
 
