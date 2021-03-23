@@ -1,5 +1,6 @@
 class Student:
     names = []
+    grades = []
     def __init__(self, name, surname, gender):
         self.name = name
         self.surname = surname
@@ -9,6 +10,7 @@ class Student:
         self.grades = {}
         self.gpa = 0
         Student.names.append(name)
+        Student.grades.append(self.grades)
 
     def add_courses(self, course_name):
         self.finished_courses.append(course_name)
@@ -39,11 +41,6 @@ class Student:
         print(f"Средняя оценка за домашние задания: {x}")
         print(f"Курсы в процессе изучения: {', '.join(self.courses_in_progress)}")
         print(f"Завершенные курсы: {', '.join(self.finished_courses)}")
-
-    # def stat(self, course, grade, student):
-    #     if python in self.courses_in_progress and self.name in student.names.items():
-    #
-
 
 
 class Mentor:
@@ -78,6 +75,8 @@ class Reviewer(Mentor):
 
 
 class Lecturer(Mentor):
+    names = []
+    grades = []
     def __init__(self, name, surname):
         super().__init__(name, surname)
         self.name = name
@@ -85,6 +84,8 @@ class Lecturer(Mentor):
         self.courses_attached = []
         self.grades = {}
         self.gpa = 0
+        Lecturer.names.append(name)
+        Lecturer.grades.append(self.grades)
 
     def __str__(self):
         print("print(some_lecturer)")
@@ -147,16 +148,26 @@ best_student.__str__()
 middle_student.__str__()
 worst_student.__str__()
 
-lecturer_grades = []
-student_grades = []
-student_grades.append(best_student.grades)
-student_grades.append(middle_student.grades)
-student_grades.append(worst_student.grades)
-lecturer_grades.append(cool_lecturer.grades)
-lecturer_grades.append(bad_lecturer.grades)
-print()
-print(middle_student.gpa)
-print(worst_student.gpa)
-print(middle_student < worst_student)
-print(Student.names)
-print(Reviewer.names)
+# lecturer_grades = []
+# student_grades = []
+# student_grades.append(best_student.grades)
+# student_grades.append(middle_student.grades)
+# student_grades.append(worst_student.grades)
+# lecturer_grades.append(cool_lecturer.grades)
+# lecturer_grades.append(bad_lecturer.grades)
+# # print()
+# print(middle_student.gpa)
+# print(worst_student.gpa)
+# print(middle_student < worst_student)
+# print(Student.names)
+# print(Student.grades)
+# print(Lecturer.grades)
+for i in Student.grades:
+    if 'Python' in i:
+        for key, value in i:
+
+# print(Reviewer.names)
+# print(lecturer_grades)
+# print(student_grades)
+
+
