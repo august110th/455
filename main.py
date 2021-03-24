@@ -167,14 +167,12 @@ print(middle_student.grades)
 # print(Reviewer.names)
 # print(Lecturer_grades)
 # print(student_grades)
-resultdict = {}
-for dictionary in Student.grades:                                     # пробегаем по списку словарей
-    for key in dictionary:                               # пробегаем по ключам словаря
-        try:
-            resultdict[key] += dictionary[key]        # складываем значения
-        except KeyError:                                    # если ключа еще нет - создаем
-            resultdict[key] = dictionary[key]
-            if 'Python' in resultdict.keys():
-                print(resultdict.values())
+
+for dictionary in Student.grades:
+    for key in dictionary:
+        if 'Python' in dictionary:
+            print(sum(dictionary[key]))
+
+
 
 
