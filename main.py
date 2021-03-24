@@ -175,6 +175,3 @@ git_gpa_lec = round(sum(git_list_lec)/ len(git_list_lec), 1)
 print(f"Средняя оценка лекторов по курсу Python: {python_gpa_lec}")
 print(f"Средняя оценка лекторов по курсу Git: {git_gpa_lec}")
 
-
-
-
