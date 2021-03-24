@@ -1,6 +1,6 @@
 class Student:
-    names = []
     grades = []
+
     def __init__(self, name, surname, gender):
         self.name = name
         self.surname = surname
@@ -9,7 +9,6 @@ class Student:
         self.courses_in_progress = []
         self.grades = {}
         self.gpa = 0
-        Student.names.append(name)
         Student.grades.append(self.grades)
 
     def add_courses(self, course_name):
@@ -44,6 +43,7 @@ class Student:
 
 
 class Mentor:
+
     def __init__(self, name, surname):
         self.name = name
         self.surname = surname
@@ -52,11 +52,13 @@ class Mentor:
 
 class Reviewer(Mentor):
     names = []
+
     def __init__(self, name, surname):
         self.name = name
         self.surname = surname
         self.courses_attached = []
         Reviewer.names.append(name)
+
     def rate_hw(self, student, course, grade):
         if isinstance(
                 student, Student
@@ -72,7 +74,6 @@ class Reviewer(Mentor):
         print("print(some_reviewer)")
         print(f"Имя: {self.name}")
         print(f"Фамилия: {self.surname}")
-
 
 class Lecturer(Mentor):
     names = []
@@ -158,8 +159,8 @@ for dictionary in Student.grades:
             git_list_st += dictionary[key]
 python_gpa_st = round(sum(python_list_st)/ len(python_list_st), 1)
 git_gpa_st = round(sum(git_list_st)/ len(git_list_st), 1)
-print(python_gpa_st)
-print(git_gpa_st)
+print(f"Средняя оценка студентов по курсу Python: {python_gpa_st}")
+print(f"Средняя оценка студентов по курсу Git: {git_gpa_st}")
 
 python_list_lec = []
 git_list_lec = []
@@ -171,8 +172,8 @@ for dictionary in Lecturer.grades:
             git_list_lec += dictionary[key]
 python_gpa_lec = round(sum(python_list_lec)/ len(python_list_lec), 1)
 git_gpa_lec = round(sum(git_list_lec)/ len(git_list_lec), 1)
-print(python_gpa_lec)
-print(git_gpa_lec)
+print(f"Средняя оценка лекторов по курсу Python: {python_gpa_lec}")
+print(f"Средняя оценка лекторов по курсу Git: {git_gpa_lec}")
 
 
 
