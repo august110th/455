@@ -76,8 +76,8 @@ class Reviewer(Mentor):
         print(f"Фамилия: {self.surname}")
 
 class Lecturer(Mentor):
-    names = []
     grades = []
+
     def __init__(self, name, surname):
         super().__init__(name, surname)
         self.name = name
@@ -85,7 +85,6 @@ class Lecturer(Mentor):
         self.courses_attached = []
         self.grades = {}
         self.gpa = 0
-        Lecturer.names.append(name)
         Lecturer.grades.append(self.grades)
 
     def __str__(self):
