@@ -51,13 +51,11 @@ class Mentor:
 
 
 class Reviewer(Mentor):
-    names = []
 
     def __init__(self, name, surname):
         self.name = name
         self.surname = surname
         self.courses_attached = []
-        Reviewer.names.append(name)
 
     def rate_hw(self, student, course, grade):
         if isinstance(
