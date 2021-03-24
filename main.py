@@ -148,30 +148,31 @@ best_student.__str__()
 middle_student.__str__()
 worst_student.__str__()
 
-# lecturer_grades = []
-# student_grades = []
-# student_grades.append(best_student.grades)
-# student_grades.append(middle_student.grades)
-# student_grades.append(worst_student.grades)
-# lecturer_grades.append(cool_lecturer.grades)
-# lecturer_grades.append(bad_lecturer.grades)
-# # print()
-# print(middle_student.gpa)
-# print(worst_student.gpa)
-# print(middle_student < worst_student)
-# print(Student.names)
-print(Student.grades)
-print(Lecturer.grades)
-
-print(middle_student.grades)
-# print(Reviewer.names)
-# print(Lecturer_grades)
-# print(student_grades)
-
+python_list_st = []
+git_list_st = []
 for dictionary in Student.grades:
     for key in dictionary:
         if 'Python' in dictionary:
-            print(sum(dictionary[key]))
+            python_list_st += dictionary[key]
+        else:
+            git_list_st += dictionary[key]
+python_gpa_st = round(sum(python_list_st)/ len(python_list_st), 1)
+git_gpa_st = round(sum(git_list_st)/ len(git_list_st), 1)
+print(python_gpa_st)
+print(git_gpa_st)
+
+python_list_lec = []
+git_list_lec = []
+for dictionary in Lecturer.grades:
+    for key in dictionary:
+        if 'Python' in dictionary:
+            python_list_lec += dictionary[key]
+        else:
+            git_list_lec += dictionary[key]
+python_gpa_lec = round(sum(python_list_lec)/ len(python_list_lec), 1)
+git_gpa_lec = round(sum(git_list_lec)/ len(git_list_lec), 1)
+print(python_gpa_lec)
+print(git_gpa_lec)
 
 
 
