@@ -20,10 +20,16 @@ cook_book = {}
 with open("recipes.txt", encoding="utf8") as f:
   for ingredient in f:
     key = ingredient.strip()
+    # print(ingredient.strip())
     cook_book[key] = []
     for _ in range(int(f.readline())):
-      ingredient_name, quantity, measure = f.readline().strip().split(' | ')
-      cook_book[key].append({'ingredient_name': ingredient_name, 'quantity': int(quantity), 'measure': measure})
+        # ingredient_name = f.readline().strip().split(' | '), [0]
+        # quantity = f.readline().strip().split(' | '), [1]
+        # measure = f.readline().strip().split(' | '), [2]
+
+
+        ingredient_name, quantity, measure = f.readline().strip().split(' | ')
+        cook_book[key].append({'ingredient_name': ingredient_name, 'quantity': int(quantity), 'measure': measure})
     f.readline()
 print(cook_book)
 
