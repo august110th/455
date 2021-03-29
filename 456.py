@@ -33,6 +33,11 @@ with open("recipes.txt", encoding="utf8") as f:
     f.readline()
 print(cook_book)
 
+list_by_dishes = {}
+def get_shop_list_by_dishes(dishes, person_count):
+
+
+
 
 
 
