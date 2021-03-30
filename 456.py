@@ -1,3 +1,4 @@
+import pprint
 cook_book = {}
 #     cook_book = {
 #     'Омлет': [
@@ -17,3 +18,24 @@ cook_book = {}
 #         {'ingredient_name': 'Сыр гауда', 'quantity': 100, 'measure': 'г'},
 #     ]
 # }
+# {
+#   'Картофель': {'measure': 'кг', 'quantity': 2},
+#   'Молоко': {'measure': 'мл', 'quantity': 200},
+#   'Помидор': {'measure': 'шт', 'quantity': 4},
+#   'Сыр гауда': {'measure': 'г', 'quantity': 200},
+#   'Яйцо': {'measure': 'шт', 'quantity': 4},
+#   'Чеснок': {'measure': 'зубч', 'quantity': 6}
+# }
+
+with open("recipes.txt", encoding='utf8') as f:
+    for ingredient in f:
+        key = ingredient.strip().lower()
+        cook_book[key] = []
+        for _ in range(int(f.readline())):
+            ingredient_name, quantity, measure = f.readline().strip().split(' | ')
+            cook_book[key].append({'ingredient_name': ingredient_name, 'quantity': int(quantity), 'measure': measure})
+        f.readline()
+# pprint.pprint(cook_book)
+print(cook_book)
+def get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2):
+    shop_list = {}
