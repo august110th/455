@@ -17,38 +17,49 @@ cook_book = {}
 #     ]
 #   }
 
-with open("recipes.txt", encoding="utf8") as f:
-  for ingredient in f:
-    key = ingredient.strip()
-    # print(ingredient.strip())
-    cook_book[key] = []
-    for _ in range(int(f.readline())):
-        # ingredient_name = f.readline().strip().split(' | '), [0]
-        # quantity = f.readline().strip().split(' | '), [1]
-        # measure = f.readline().strip().split(' | '), [2]
+def cook_book():
+    list_dish_name = []
+    list_ingridient = []
+    with open("recipes.txt", encoding='utf8') as file:
+        for ingredient in file:
+            key = ingredient.strip().lower()
+            cook_book[key] = []
+            for _ in range(int(file.readline())):
+                ingredient_name, quantity, measure = file.readline().strip().split(' | ')
+                cook_book[key].append(
+                    {'ingredient_name': ingredient_name, 'quantity': int(quantity), 'measure': measure})
+            file.readline()
+    return cook_book
 
-
-        ingredient_name, quantity, measure = f.readline().strip().split(' | ')
-        cook_book[key].append({'ingredient_name': ingredient_name, 'quantity': int(quantity), 'measure': measure})
-    f.readline()
 print(cook_book)
 
-list_by_dishes = {}
+
 def get_shop_list_by_dishes(dishes, person_count):
+    shop_list = {}
+    for dish in dishes:
+        for ingridient in cook_book[dish]:
+            new_shop_list_item = dict(ingridient)
+
+            new_shop_list_item['quantity'] *= person_count
+            if new_shop_list_item['ingridient_name'] not in shop_list:
+                shop_list[new_shop_list_item['ingridient_name']] = new_shop_list_item
+            else:
+                shop_list[new_shop_list_item['ingridient_name']]['quantity'] += new_shop_list_item['quantity']
 
 
+    return shop_list
 
 
+def print_shop_list(shop_list):
+    for shop_list_item in shop_list.values():
+        print(
+            '{} {} {}'.format(shop_list_item['ingridient_name'], shop_list_item['quantity'], shop_list_item['measure']))
 
 
-#   ingredient_name = f.readline()
-#   quantity = int(f.readline())
-#   ing_list =[]
-#   for _ in range(quantity):
-#     ingr = f.readline().strip()
-#     splited = ingr.split("|")
-#     ing_list.append(splited)
-#   f.readline()
-# print(ing_list)
-#
-# print(cook_book)
+def create_shop_list():
+    person_count = int(input('Введите количество человек: '))
+    dishes = input('Введите блюда в расчете на одного человека (через запятую): ').lower().split(', ')
+    shop_list = get_shop_list_by_dishes(dishes, person_count)
+    print_shop_list(shop_list)
+
+create_shop_list()
