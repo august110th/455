@@ -6,4 +6,9 @@ with open('2.txt', encoding='utf-8') as f:
 
 with open('3.txt', encoding='utf-8') as f:
     list3 = (f.readlines())
-print(list2)
+    line_count = 0
+    print(len(list3))
+with open('4.txt', 'w') as f:
+    f.write('2')
+
+# print(list3)
