@@ -10,5 +10,7 @@ with open('3.txt', encoding='utf-8') as f:
     print(len(list3))
 with open('4.txt', 'w') as f:
     f.write('2')
+a = min(len(list1), len(list2), len(list3))
+if list1 > a:
 
 # print(list3)
