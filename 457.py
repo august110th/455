@@ -10,13 +10,11 @@ class Text:
             self.length = len(self.doc_list)
 
     def write_file(self):
-        a = min(fragment1.length, fragment2.length, fragment3.length)
         with open("4.txt", "w") as f:
-            if self.length == a:
-                f.write(self.name + '\n')
-                f.write(str(self.length) + '\n')
-                for item in self.doc_list:
-                    f.write(item)
+            f.write(self.name + '\n')
+            f.write(str(self.length) + '\n')
+            for item in self.doc_list:
+                f.write(item)
 
 fragment1 = Text("1.txt")
 fragment1.doc_list_create()
@@ -26,9 +24,25 @@ fragment2.doc_list_create()
 
 fragment3 = Text("3.txt")
 fragment3.doc_list_create()
+list_length = [fragment1.length, fragment2.length, fragment3.length]
 
 
+print(list_length)
 
+
+def search():
+    a = min(fragment1.length, fragment2.length, fragment3.length)
+    b = max(fragment1.length, fragment2.length, fragment3.length)
+    list_length = [fragment1.length, fragment2.length, fragment3.length]
+    for i in list_length:
+        if i == a:
+            i.write_file()
+        elif a < i < b:
+            i.write_file()
+        elif i == b:
+            i.write_file()
+
+search()
 
 # print(a)
 
