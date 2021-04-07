@@ -3,13 +3,11 @@ class Text:
         self.length = 0
         self.doc_list = []
         self.name = name
+
     def doc_list_create(self):
         with open(self.name, encoding='utf-8') as f:
             self.doc_list = (f.readlines())
             self.length = len(self.doc_list)
-
-    def __lt__(self, other):
-        return self.length < other.length
 
     def write_file(self):
         a = min(fragment1.length, fragment2.length, fragment3.length)
