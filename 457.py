@@ -1,4 +1,4 @@
-class Text:
+class Fragment:
     def __init__(self, name):
         self.length = 0
         self.doc_list = []
@@ -9,20 +9,22 @@ class Text:
             self.doc_list = (f.readlines())
             self.length = len(self.doc_list)
 
-def write_file(Text):
+def write_file(Fragment):
     with open("4.txt", "a") as f:
-        f.write(Text.name + '\n')
-        f.write(str(Text.length) + '\n')
-        for item in Text.doc_list:
+        f.write(Fragment.name + '\n')
+        f.write(str(Fragment.length) + '\n')
+        for item in Fragment.doc_list:
             f.write(item)
+        f.write('\n')
+        f.write('\n')
 
-fragment1 = Text("1.txt")
+fragment1 = Fragment("1.txt")
 fragment1.doc_list_create()
 
-fragment2 = Text("2.txt")
+fragment2 = Fragment("2.txt")
 fragment2.doc_list_create()
 
-fragment3 = Text("3.txt")
+fragment3 = Fragment("3.txt")
 fragment3.doc_list_create()
 
 a = min(fragment1.length, fragment2.length, fragment3.length)
