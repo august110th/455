@@ -36,7 +36,6 @@ with open("recipes.txt", encoding='utf8') as f:
             cook_book[key].append({'ingredient_name': ingredient_name, 'quantity': int(quantity), 'measure': measure})
         f.readline()
 # pprint.pprint(cook_book)
-print(cook_book)
 
 def get_shop_list_by_dishes(dishes, person_count):
     shop_list = {}
