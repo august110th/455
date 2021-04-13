@@ -5,10 +5,16 @@ import json
 
 
 def request():
-    url = "https://superheroapi.com/api/2619421814940190/search/"
+    url = "https://superheroapi.com/api/2619421814940190/search/Hulk"
     params = {}
-    headers = {'Authorization': '2619421814940190'}
-    return requests.get(url, params=params, headers=headers, timeout=5)
+    return requests.get(url, params=params, timeout=5)
+print(request().json())
 
+# def hero_intelligence():
+hero_dict = requests.get("https://superheroapi.com/api/2619421814940190/search/Hulk").json()
+hero_int = hero_dict['results'][0]['powerstats']["intelligence"]
+print(hero_dict)
 
-
+#     return
+# hero_intelligence()
+print(hero_int)
