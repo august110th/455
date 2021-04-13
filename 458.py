@@ -27,3 +27,4 @@ class Hero():
 # # hero_intelligence()
 # print(hero_int)
 # print(hero_id)
+Hulk = Hero()
