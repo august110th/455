@@ -12,11 +12,6 @@ class Hero():
         self.intelligence = hero_dict['results'][0]['powerstats']["intelligence"]
         self.id = hero_dict['results'][0]['id']
 
-    def stat_dict(self):
-        stat_dict = {}
-        stat_dict[self.name] = self.intelligence
-        return stat_dict      # print(hero_dict)
-
 hulk = Hero("Hulk")
 captain_america = Hero("Captain America")
 thanos = Hero("Thanos")
@@ -24,8 +19,11 @@ thanos = Hero("Thanos")
 hulk.hero_stat()
 captain_america.hero_stat()
 thanos.hero_stat()
-hulk.stat_dict()
 
-# print(stat_dict)
-
+a = max(hulk.intelligence, captain_america.intelligence, thanos.intelligence)
+print(a)
+stat_dict = {"Hulk" : hulk.intelligence, "Captain America" : captain_america.intelligence, "Thanos" : thanos.intelligence}
+for key, value in stat_dict.items():
+    if value == a:
+        print(f"Самый умный персонаж:  {key}")
 
