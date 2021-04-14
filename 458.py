@@ -2,9 +2,9 @@ import requests
 
 class Hero():
 
-    def __init__(self, intelligence, id, name):
-        self.intelligence = intelligence
-        self.id = id
+    def __init__(self, name):
+        self.intelligence = 0
+        self.id = 0
         self.name = name
 
     def hero_stat(self):
@@ -12,6 +12,16 @@ class Hero():
         self.intelligence = hero_dict['results'][0]['powerstats']["intelligence"]
         self.id = hero_dict['results'][0]['id']
         print(hero_dict)
+
+hulk = Hero("Hulk")
+captain_america = Hero("Captain America")
+thanos = Hero("Thanos")
+
+hulk.hero_stat()
+captain_america.hero_stat()
+thanos.hero_stat()
+
+
 
 
 
