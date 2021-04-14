@@ -20,10 +20,10 @@ hulk.hero_stat()
 captain_america.hero_stat()
 thanos.hero_stat()
 
-a = max(hulk.intelligence, captain_america.intelligence, thanos.intelligence)
+a = min(hulk.intelligence, captain_america.intelligence, thanos.intelligence)
 print(a)
 stat_dict = {"Hulk" : hulk.intelligence, "Captain America" : captain_america.intelligence, "Thanos" : thanos.intelligence}
 for key, value in stat_dict.items():
     if value == a:
-        print(f"Самый умный персонаж:  {key}")
+        print(f"Самый умный персонаж: {key}")
 
