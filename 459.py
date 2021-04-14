@@ -9,10 +9,9 @@ class YaUploader:
 
     def _get_upload_link(self, disk_file_path):
         upload_url = "https://cloud-api.yandex.net/v1/disk/resources/upload"
-        headers = {"Authorization": f"OAuth {self.token}"}
+        headers = self.get_headers()
         params = {"path": disk_file_path, "overwrite": "True"}
         response = requests.get(upload_url, params=params, headers=headers, timeout = 5)
-        print(response.json())
         return response.json()
 
     def upload_file_to_disk(self, disk_file_path, filename):
@@ -26,5 +25,5 @@ class YaUploader:
 if __name__ == '__main__':
     Token = "AQAAAAABShuLAADLW4R_AUOH0EkEqr8hgVITfn0"
     uploader = YaUploader('2303acdcd34a428db8778a708d56a056')
-    print(uploader.upload_file_to_disk("upload/to_upload.txt", "c:/temp/to_upload.txt"))
+    print(uploader.upload_file_to_disk("upload/to_upload.txt", "to_upload.txt"))
 # print(result)
