@@ -16,5 +16,5 @@ class YaUploader:
         return f"Файл загружен на яндекс диск! Код: {response.status_code}"
 
 if __name__ == "__main__":
-  uploader = YaUploader("AQAAAAABShuLAADLW4R_AUOH0EkEqr8hgVITfn0")
+  uploader = YaUploader("токен")
   print(uploader.upload("to_upload.txt"))
