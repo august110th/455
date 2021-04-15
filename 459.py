@@ -1,29 +1,8 @@
 import requests
+
+
 class YaUploader:
     def __init__(self, token: str):
         self.token = token
 
-    def get_headers(self):
-        return {"Content-Type" : "application/json()", "Authorization" : "OAuth {}".format(self.token)}
-
-
-    def _get_upload_link(self, disk_file_path):
-        upload_url = "https://cloud-api.yandex.net/v1/disk/resources/upload"
-        headers = self.get_headers()
-        params = {"path": disk_file_path, "overwrite": "True"}
-        response = requests.get(upload_url, params=params, headers=headers, timeout = 5)
-        return response.json()
-
-    def upload_file_to_disk(self, disk_file_path, filename):
-        href = self._get_upload_link(disk_file_path=disk_file_path).get("href", "")
-        response = requests.put(href, data=open(filename, "rb"))
-        response.raise_for_status()
-        if response.status_code == 201:
-            print("Succes")
-
-#
-if __name__ == '__main__':
-    Token = "AQAAAAABShuLAADLW4R_AUOH0EkEqr8hgVITfn0"
-    uploader = YaUploader('2303acdcd34a428db8778a708d56a056')
-    print(uploader.upload_file_to_disk("upload/to_upload.txt", "to_upload.txt"))
-# print(result)
+    def upload(self, file_path: str):
