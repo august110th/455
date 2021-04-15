@@ -11,3 +11,10 @@ class YaUploader:
         headers = {"Authorization": f"OAuth {self.token}"}
         response = requests.get(url, params=params, headers=headers)
         result = response.json()["href"]
+        with open("to_upload.txt", "rb") as f:
+            response = requests.put(result, files={"file": f})
+        return f"Файл загружен на яндекс диск! Код: {response.status_code}"
+
+if __name__ == "__main__":
+  uploader = YaUploader("AQAAAAABShuLAADLW4R_AUOH0EkEqr8hgVITfn0")
+  print(uploader.upload("to_upload.txt"))
