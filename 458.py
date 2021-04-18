@@ -20,9 +20,11 @@ hulk.hero_stat()
 captain_america.hero_stat()
 thanos.hero_stat()
 
-a = min(hulk.intelligence, captain_america.intelligence, thanos.intelligence)
 stat_dict = {"Hulk" : hulk.intelligence, "Captain America" : captain_america.intelligence, "Thanos" : thanos.intelligence}
-for key, value in stat_dict.items():
-    if value == a:
-        print(f"Самый умный персонаж: {key}")
-
+sorted_dict = {}
+sorted_keys = sorted(stat_dict, key=stat_dict.get)
+for w in sorted_keys:
+    sorted_dict[w] = stat_dict[w]
+print(sorted_dict)
+keys = list(sorted_dict.keys())
+print(f"Самый умный персонаж: {keys[0]}")
