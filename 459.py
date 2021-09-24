@@ -1,6 +1,6 @@
 import requests
 
-
+Token = "AQAAAAABShuLAATuwUqxat4xjk-zrTxLCZbh8uo"
 class YaUploader:
     def __init__(self, token: str):
         self.token = token
