@@ -12,5 +12,5 @@ class NewFolder:
         return f"Папка создана {response.status_code}"
 
 if __name__ == "__main__":
-    nf = NewFolder("AQAAAAABShuLAADLW29yEpv3dkkDj0C1Fd1qU9M")
+    nf = NewFolder("токен")
     print(nf.upload("new_folder"))
